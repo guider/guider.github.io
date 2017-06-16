@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="config,server," />
 
 
 
@@ -93,12 +93,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="as guider">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="###一、常见类 RACSiganl信号类。 RACEmptySignal ：空信号，用来实现 RACSignal 的 +empty 方法； RACReturnSignal ：一元信号，用来实现 RACSignal 的 +return: 方法； RACDynamicSignal ：动态信号，使用一个 block - 来实现订阅行为，我们在使用 RACSignal 的 +createSignal:">
+<meta name="keywords" content="config,server">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS ReactiveCocoa 最全常用API">
+<meta property="og:url" content="http://yoursite.com/2017/06/16/2017-06-16/index.html">
 <meta property="og:site_name" content="as guider">
+<meta property="og:description" content="###一、常见类 RACSiganl信号类。 RACEmptySignal ：空信号，用来实现 RACSignal 的 +empty 方法； RACReturnSignal ：一元信号，用来实现 RACSignal 的 +return: 方法； RACDynamicSignal ：动态信号，使用一个 block - 来实现订阅行为，我们在使用 RACSignal 的 +createSignal:">
+<meta property="og:updated_time" content="2017-06-16T03:18:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="as guider">
+<meta name="twitter:title" content="iOS ReactiveCocoa 最全常用API">
+<meta name="twitter:description" content="###一、常见类 RACSiganl信号类。 RACEmptySignal ：空信号，用来实现 RACSignal 的 +empty 方法； RACReturnSignal ：一元信号，用来实现 RACSignal 的 +return: 方法； RACDynamicSignal ：动态信号，使用一个 block - 来实现订阅行为，我们在使用 RACSignal 的 +createSignal:">
 
 
 
@@ -126,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/16/2017-06-16/"/>
 
 
 
 
 
-  <title>as guider</title>
+  <title>iOS ReactiveCocoa 最全常用API | as guider</title>
   
 
 
@@ -157,9 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -242,230 +245,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/16/ngxin-config/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="guider">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="as guider">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/16/ngxin-config/" itemprop="url">ngxin-config</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-16T10:52:53+08:00">
-                2017-06-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>nginx-config</p>
-<p>#user  nobody;<br>worker_processes  1;</p>
-<p>#error_log  logs/error.log;</p>
-<p>#error_log  logs/error.log  notice;</p>
-<p>#error_log  logs/error.log  info;</p>
-<p>#pid        logs/nginx.pid;</p>
-<p>events {<br>    worker_connections  1024;<br>}</p>
-<p>http {<br>    include       mime.types;<br>    default_type  application/octet-stream;</p>
-<pre><code>#log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;
-#                  &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;
-#                  &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;
-
-#access_log  logs/access.log  main;
-
-sendfile        on;
-#tcp_nopush     on;
-
-#keepalive_timeout  0;
-keepalive_timeout  65;
-
-#gzip  on;
-
-server {
-    listen       443;
-    server_name  localhost;
-
-
-    ssl on;
-    ssl_certificate   /usr/local/nginx/cert/214068728840046.pem;
-    ssl_certificate_key  /usr/local/nginx/cert/214068728840046.key;
-    ssl_session_timeout 5m;
-    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-    ssl_prefer_server_ciphers on;
-
-
-    location / {
-        root   html;
-        index  index.html index.htm;
-    }
-
-    #error_page  404              /404.html;
-
-    # redirect server error pages to the static page /50x.html
-    #
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   html;
-    }
-
-    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
-    #
-    #location ~ \.php$ {
-    #    proxy_pass   http://127.0.0.1;
-    #}
-
-    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-    #
-    #location ~ \.php$ {
-    #    root           html;
-    #    fastcgi_pass   127.0.0.1:9000;
-    #    fastcgi_index  index.php;
-    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
-    #    include        fastcgi_params;
-    #}
-
-    # deny access to .htaccess files, if Apache&apos;s document root
-    # concurs with nginx&apos;s one
-    #
-    #location ~ /\.ht {
-    #    deny  all;
-    #}
-}
-
-
-# another virtual host using mix of IP-, name-, and port-based configuration
-#
-#server {
-#    listen       8000;
-#    listen       somename:8080;
-#    server_name  somename  alias  another.alias;
-
-#    location / {
-#        root   html;
-#        index  index.html index.htm;
-#    }
-#}
-
-
-# HTTPS server
-#
-#server {
-#    listen       443 ssl;
-#    server_name  localhost;
-
-#    ssl_certificate      cert.pem;
-#    ssl_certificate_key  cert.key;
-
-#    ssl_session_cache    shared:SSL:1m;
-#    ssl_session_timeout  5m;
-
-#    ssl_ciphers  HIGH:!aNULL:!MD5;
-#    ssl_prefer_server_ciphers  on;
-
-#    location / {
-#        root   html;
-#        index  index.html index.htm;
-#    }
-#}
-</code></pre><p>}</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
 
   
 
@@ -491,9 +273,7 @@ server {
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/16/2017-06-16/" itemprop="url">iOS ReactiveCocoa 最全常用API</a></h1>
+          <h1 class="post-title" itemprop="name headline">iOS ReactiveCocoa 最全常用API</h1>
         
 
         <div class="post-meta">
@@ -540,9 +320,7 @@ server {
       
 
       
-        
-          
-            <p>###一、常见类</p>
+        <p>###一、常见类</p>
 <h6 id="RACSiganl信号类。"><a href="#RACSiganl信号类。" class="headerlink" title="RACSiganl信号类。"></a>RACSiganl信号类。</h6><ul>
 <li>RACEmptySignal ：空信号，用来实现 RACSignal 的 +empty 方法；</li>
 <li>RACReturnSignal ：一元信号，用来实现 RACSignal 的 +return: 方法；</li>
@@ -617,273 +395,78 @@ server {
 <h3 id="五、UI-Category（常用汇总）"><a href="#五、UI-Category（常用汇总）" class="headerlink" title="五、UI - Category（常用汇总）"></a>五、UI - Category（常用汇总）</h3><p>1、rac_prepareForReuseSignal： 需要复用时用 相关UI: MKAnnotationView、UICollectionReusableView、UITableViewCell、UITableViewHeaderFooterView<br>2、rac_buttonClickedSignal：点击事件触发信号 相关UI：UIActionSheet、UIAlertView<br>3、rac_command：button类、刷新类相关命令替换 相关UI：UIBarButtonItem、UIButton、UIRefreshControl<br>4、rac_signalForControlEvents: control event 触发 相关UI：UIControl<br>5、rac_gestureSignal UIGestureRecognizer 事件处理信号 相关UI：UIGestureRecognizer<br>6、rac_imageSelectedSignal 选择图片的信号 相关UI：UIImagePickerController<br>7、rac_textSignal 相关UI：UITextField、UITextView<br>8、可实现双向绑定的相关API<br>racchannelForControlEvents: key: nilValue: 相关UI：UIControl类 racnewDateChannelWithNilValue: 相关UI：UIDatePicker<br>rac_newSelectedSegmentIndexChannelWithNilValue: 相关UI：UISegmentedControl<br>rac_newValueChannelWithNilValue: 相关UI：UISlider、UIStepper<br>rac_newOnChannel 相关UI：UISwitch<br>rac_newTextChannel 相关UI：UITextField</p>
 <h3 id="六、Foundation-Category-（常用汇总）"><a href="#六、Foundation-Category-（常用汇总）" class="headerlink" title="六、Foundation - Category （常用汇总）"></a>六、Foundation - Category （常用汇总）</h3><p>1、NSArray<br>rac_sequence 信号集合<br>2、NSData<br>rac_readContentsOfURL: options: scheduler: 比oc多出线程设置<br>3、NSDictionary<br>rac_sequence 不解释<br>rac_keySequence key 集合<br>rac_valueSequence value 集合<br>4、NSEnumerator<br>rac_sequence 不解释<br>5、NSFileHandle<br>rac_readInBackground 见名知意<br>6、NSIndexSet<br>rac_sequence 不解释<br>7、NSInvocation<br>rac_setArgument: atIndex: 设置参数<br>rac_argumentAtIndex 取某个参数<br>rac_returnValue 所关联方法的返回值<br>8、NSNotificationCenter<br>rac_addObserverForName: object:注册通知<br>9、NSObject<br>rac_willDeallocSignal 对象销毁时发动的信号<br>rac_description debug用<br>rac_observeKeyPath: options: observer: block:监听某个事件<br>rac_liftSelector: withSignals: 全部信号都next在执行<br>rac_signalForSelector: 代替某个方法<br>rac_signalForSelector:(SEL)selector fromProtocol:代替代理<br>9、NSOrderedSet<br>rac_sequence 不解释<br>10、NSSet<br>rac_sequence 不解释<br>11、NSString<br>rac_keyPathComponents 获取一个路径所有的部分<br>rac_keyPathByDeletingLastKeyPathComponent 删除路径最后一部分<br>rac_keyPathByDeletingFirstKeyPathComponent 删除路径第一部分<br>rac_sequence 不解释 (character)<br>rac_readContentsOfURL: usedEncoding: scheduler: 比之OC多线程调用<br>12、NSURLConnection<br>rac_sendAsynchronousRequest 发起异步请求<br>13、NSUserDefaults<br>rac_channelTerminalForKey 用于双向绑定，此乃一端</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/16/Hello-Hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="guider">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="as guider">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/16/Hello-Hexo/" itemprop="url">Hello Hexo</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-16T10:29:01+08:00">
-                2017-06-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/config/" rel="tag"># config</a>
           
-            
+            <a href="/tags/server/" rel="tag"># server</a>
           
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/16/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="guider">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="as guider">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/16/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+              <a href="/2017/06/16/Hello-Hexo/" rel="next" title="Hello Hexo">
+                <i class="fa fa-chevron-left"></i> Hello Hexo
+              </a>
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-16T10:19:44+08:00">
-                2017-06-16
-              </time>
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
+              <a href="/2017/06/16/ngxin-config/" rel="prev" title="ngxin-config">
+                ngxin-config <i class="fa fa-chevron-right"></i>
+              </a>
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -891,6 +474,10 @@ server {
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -910,8 +497,17 @@ server {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -964,6 +560,22 @@ server {
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#RACSiganl信号类。"><span class="nav-number">1.</span> <span class="nav-text">RACSiganl信号类。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#RACSubscriber"><span class="nav-number">2.</span> <span class="nav-text">RACSubscriber</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#RACDisposable"><span class="nav-number">3.</span> <span class="nav-text">RACDisposable</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#RACSubject-信号提供者，自己可以充当信号，又能发送信号。"><span class="nav-number">4.</span> <span class="nav-text">RACSubject 信号提供者，自己可以充当信号，又能发送信号。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#RACTuple-元组类-类似NSArray-用来包装值"><span class="nav-number">5.</span> <span class="nav-text">RACTuple 元组类,类似NSArray,用来包装值.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#RACSequence-RAC中的集合类"><span class="nav-number">6.</span> <span class="nav-text">RACSequence RAC中的集合类</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#RACCommand-RAC中用于处理事件的类，可以把事件如何处理-事件中的数据如何传递，包装到这个类中，他可以很方便的监控事件的执行过程。"><span class="nav-number">7.</span> <span class="nav-text">RACCommand RAC中用于处理事件的类，可以把事件如何处理,事件中的数据如何传递，包装到这个类中，他可以很方便的监控事件的执行过程。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#RACMulticastConnection-用于当一个信号，被多次订阅时，为了保证创建信号时，避免多次调用创建信号中的block，造成副作用，可以使用这个类处理。"><span class="nav-number">8.</span> <span class="nav-text">RACMulticastConnection 用于当一个信号，被多次订阅时，为了保证创建信号时，避免多次调用创建信号中的block，造成副作用，可以使用这个类处理。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#RACScheduler-RAC中的队列，用GCD封装的。"><span class="nav-number">9.</span> <span class="nav-text">RACScheduler RAC中的队列，用GCD封装的。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、常见用法"><span class="nav-number"></span> <span class="nav-text">二、常见用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、UI-Category（常用汇总）"><span class="nav-number"></span> <span class="nav-text">五、UI - Category（常用汇总）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、Foundation-Category-（常用汇总）"><span class="nav-number"></span> <span class="nav-text">六、Foundation - Category （常用汇总）</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1077,10 +689,10 @@ server {
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
