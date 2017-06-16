@@ -253,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/16/ngxin-config/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/16/2017-06-16-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="guider">
@@ -272,7 +272,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/16/ngxin-config/" itemprop="url">ngxin-config</a></h1>
+                <a class="post-title-link" href="/2017/06/16/2017-06-16-1/" itemprop="url">Activity绘制流程</a></h1>
         
 
         <div class="post-meta">
@@ -321,116 +321,32 @@
       
         
           
-            <p>nginx-config</p>
-<p>#user  nobody;<br>worker_processes  1;</p>
-<p>#error_log  logs/error.log;</p>
-<p>#error_log  logs/error.log  notice;</p>
-<p>#error_log  logs/error.log  info;</p>
-<p>#pid        logs/nginx.pid;</p>
-<p>events {<br>    worker_connections  1024;<br>}</p>
-<p>http {<br>    include       mime.types;<br>    default_type  application/octet-stream;</p>
-<pre><code>#log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;
-#                  &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;
-#                  &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;
+            <h4 id=""><a href="#" class="headerlink" title=" "></a> </h4><p><img src="http://o7lzjfyxl.bkt.clouddn.com/20170506149404022924991.png" alt="20170506149404022924991.png"></p>
+<p>  setContentView到底做了些什么，为什么调用后就可以显示出我们想要的布局页面？</p>
+<pre><code>PhoneWindow倒是什么东西？Window和它是什么关系？
 
-#access_log  logs/access.log  main;
+DecorView是干什么用的？和我们的布局又有什么样的关系
 
-sendfile        on;
-#tcp_nopush     on;
-
-#keepalive_timeout  0;
-keepalive_timeout  65;
-
-#gzip  on;
-
-server {
-    listen       443;
-    server_name  localhost;
+requestFeature为什么要在setContentView之前调用？
+</code></pre><p><img src="http://o7lzjfyxl.bkt.clouddn.com/20170506149404008044401.png" alt="20170506149404008044401.png"></p>
+<pre><code>2、LayoutInflater 
 
 
-    ssl on;
-    ssl_certificate   /usr/local/nginx/cert/214068728840046.pem;
-    ssl_certificate_key  /usr/local/nginx/cert/214068728840046.key;
-    ssl_session_timeout 5m;
-    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-    ssl_prefer_server_ciphers on;
+到底怎么把xml添加到decorview？
 
+    include 为什么不能xml资源布局的根节点？
 
-    location / {
-        root   html;
-        index  index.html index.htm;
-    }
+    merge 为什么作为xml资源布局的根节点？
+</code></pre><p><img src="http://o7lzjfyxl.bkt.clouddn.com/20170506149403998388910.png" alt="20170506149403998388910.png"></p>
+<p>   小结：每一个Activity都有一个关联的Window对象，用来描述应用程序窗口。<br>         每一个窗口内部又包含了一个DecorView对象，Decorview对象用来描述窗口的视图–xml布局</p>
+<pre><code>上述是创建DecorView的过程
 
-    #error_page  404              /404.html;
-
-    # redirect server error pages to the static page /50x.html
-    #
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   html;
-    }
-
-    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
-    #
-    #location ~ \.php$ {
-    #    proxy_pass   http://127.0.0.1;
-    #}
-
-    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-    #
-    #location ~ \.php$ {
-    #    root           html;
-    #    fastcgi_pass   127.0.0.1:9000;
-    #    fastcgi_index  index.php;
-    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
-    #    include        fastcgi_params;
-    #}
-
-    # deny access to .htaccess files, if Apache&apos;s document root
-    # concurs with nginx&apos;s one
-    #
-    #location ~ /\.ht {
-    #    deny  all;
-    #}
-}
-
-
-# another virtual host using mix of IP-, name-, and port-based configuration
-#
-#server {
-#    listen       8000;
-#    listen       somename:8080;
-#    server_name  somename  alias  another.alias;
-
-#    location / {
-#        root   html;
-#        index  index.html index.htm;
-#    }
-#}
-
-
-# HTTPS server
-#
-#server {
-#    listen       443 ssl;
-#    server_name  localhost;
-
-#    ssl_certificate      cert.pem;
-#    ssl_certificate_key  cert.key;
-
-#    ssl_session_cache    shared:SSL:1m;
-#    ssl_session_timeout  5m;
-
-#    ssl_ciphers  HIGH:!aNULL:!MD5;
-#    ssl_prefer_server_ciphers  on;
-
-#    location / {
-#        root   html;
-#        index  index.html index.htm;
-#    }
-#}
-</code></pre><p>}</p>
+3、DecorView如何添加到Window
+看图片，最终调用了ViewRootImpl.setView
+在setview方法里调用了view.assignParent(this);,将Decorview的mParent设置成ViewRootImpl
+这也就是为什么View再用requestLayout方法的时候最终会走到ViewRootImpl的requestLayout
+</code></pre><p><img src="http://o7lzjfyxl.bkt.clouddn.com/20170506149404009584656.png" alt="20170506149404009584656.png"></p>
+<hr>
 
           
         
@@ -616,6 +532,227 @@ server {
 </ul>
 <h3 id="五、UI-Category（常用汇总）"><a href="#五、UI-Category（常用汇总）" class="headerlink" title="五、UI - Category（常用汇总）"></a>五、UI - Category（常用汇总）</h3><p>1、rac_prepareForReuseSignal： 需要复用时用 相关UI: MKAnnotationView、UICollectionReusableView、UITableViewCell、UITableViewHeaderFooterView<br>2、rac_buttonClickedSignal：点击事件触发信号 相关UI：UIActionSheet、UIAlertView<br>3、rac_command：button类、刷新类相关命令替换 相关UI：UIBarButtonItem、UIButton、UIRefreshControl<br>4、rac_signalForControlEvents: control event 触发 相关UI：UIControl<br>5、rac_gestureSignal UIGestureRecognizer 事件处理信号 相关UI：UIGestureRecognizer<br>6、rac_imageSelectedSignal 选择图片的信号 相关UI：UIImagePickerController<br>7、rac_textSignal 相关UI：UITextField、UITextView<br>8、可实现双向绑定的相关API<br>racchannelForControlEvents: key: nilValue: 相关UI：UIControl类 racnewDateChannelWithNilValue: 相关UI：UIDatePicker<br>rac_newSelectedSegmentIndexChannelWithNilValue: 相关UI：UISegmentedControl<br>rac_newValueChannelWithNilValue: 相关UI：UISlider、UIStepper<br>rac_newOnChannel 相关UI：UISwitch<br>rac_newTextChannel 相关UI：UITextField</p>
 <h3 id="六、Foundation-Category-（常用汇总）"><a href="#六、Foundation-Category-（常用汇总）" class="headerlink" title="六、Foundation - Category （常用汇总）"></a>六、Foundation - Category （常用汇总）</h3><p>1、NSArray<br>rac_sequence 信号集合<br>2、NSData<br>rac_readContentsOfURL: options: scheduler: 比oc多出线程设置<br>3、NSDictionary<br>rac_sequence 不解释<br>rac_keySequence key 集合<br>rac_valueSequence value 集合<br>4、NSEnumerator<br>rac_sequence 不解释<br>5、NSFileHandle<br>rac_readInBackground 见名知意<br>6、NSIndexSet<br>rac_sequence 不解释<br>7、NSInvocation<br>rac_setArgument: atIndex: 设置参数<br>rac_argumentAtIndex 取某个参数<br>rac_returnValue 所关联方法的返回值<br>8、NSNotificationCenter<br>rac_addObserverForName: object:注册通知<br>9、NSObject<br>rac_willDeallocSignal 对象销毁时发动的信号<br>rac_description debug用<br>rac_observeKeyPath: options: observer: block:监听某个事件<br>rac_liftSelector: withSignals: 全部信号都next在执行<br>rac_signalForSelector: 代替某个方法<br>rac_signalForSelector:(SEL)selector fromProtocol:代替代理<br>9、NSOrderedSet<br>rac_sequence 不解释<br>10、NSSet<br>rac_sequence 不解释<br>11、NSString<br>rac_keyPathComponents 获取一个路径所有的部分<br>rac_keyPathByDeletingLastKeyPathComponent 删除路径最后一部分<br>rac_keyPathByDeletingFirstKeyPathComponent 删除路径第一部分<br>rac_sequence 不解释 (character)<br>rac_readContentsOfURL: usedEncoding: scheduler: 比之OC多线程调用<br>12、NSURLConnection<br>rac_sendAsynchronousRequest 发起异步请求<br>13、NSUserDefaults<br>rac_channelTerminalForKey 用于双向绑定，此乃一端</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/16/ngxin-config/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="guider">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="as guider">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/16/ngxin-config/" itemprop="url">ngxin-config</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-16T10:52:53+08:00">
+                2017-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>nginx-config</p>
+<p>#user  nobody;<br>worker_processes  1;</p>
+<p>#error_log  logs/error.log;</p>
+<p>#error_log  logs/error.log  notice;</p>
+<p>#error_log  logs/error.log  info;</p>
+<p>#pid        logs/nginx.pid;</p>
+<p>events {<br>    worker_connections  1024;<br>}</p>
+<p>http {<br>    include       mime.types;<br>    default_type  application/octet-stream;</p>
+<pre><code>#log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;
+#                  &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;
+#                  &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;
+
+#access_log  logs/access.log  main;
+
+sendfile        on;
+#tcp_nopush     on;
+
+#keepalive_timeout  0;
+keepalive_timeout  65;
+
+#gzip  on;
+
+server {
+    listen       443;
+    server_name  localhost;
+
+
+    ssl on;
+    ssl_certificate   /usr/local/nginx/cert/214068728840046.pem;
+    ssl_certificate_key  /usr/local/nginx/cert/214068728840046.key;
+    ssl_session_timeout 5m;
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_prefer_server_ciphers on;
+
+
+    location / {
+        root   html;
+        index  index.html index.htm;
+    }
+
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   html;
+    }
+
+    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+    #
+    #location ~ \.php$ {
+    #    proxy_pass   http://127.0.0.1;
+    #}
+
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+    #
+    #location ~ \.php$ {
+    #    root           html;
+    #    fastcgi_pass   127.0.0.1:9000;
+    #    fastcgi_index  index.php;
+    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+    #    include        fastcgi_params;
+    #}
+
+    # deny access to .htaccess files, if Apache&apos;s document root
+    # concurs with nginx&apos;s one
+    #
+    #location ~ /\.ht {
+    #    deny  all;
+    #}
+}
+
+
+# another virtual host using mix of IP-, name-, and port-based configuration
+#
+#server {
+#    listen       8000;
+#    listen       somename:8080;
+#    server_name  somename  alias  another.alias;
+
+#    location / {
+#        root   html;
+#        index  index.html index.htm;
+#    }
+#}
+
+
+# HTTPS server
+#
+#server {
+#    listen       443 ssl;
+#    server_name  localhost;
+
+#    ssl_certificate      cert.pem;
+#    ssl_certificate_key  cert.key;
+
+#    ssl_session_cache    shared:SSL:1m;
+#    ssl_session_timeout  5m;
+
+#    ssl_ciphers  HIGH:!aNULL:!MD5;
+#    ssl_prefer_server_ciphers  on;
+
+#    location / {
+#        root   html;
+#        index  index.html index.htm;
+#    }
+#}
+</code></pre><p>}</p>
 
           
         
@@ -926,7 +1063,7 @@ server {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
